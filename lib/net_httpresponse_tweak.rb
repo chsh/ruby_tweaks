@@ -19,13 +19,16 @@
 #   content=response.plain_body     # Method from our library
 #   puts "Transferred: #{response.body.length} bytes"
 #   puts "Compression: #{response['content-encoding']}"
-#   puts "Extracted: #{response.plain_body.length} bytes"  
+#   puts "Extracted: #{response.plain_body.length} bytes"
 # end
-#	
+#
 
 require 'net/http'
 require 'zlib'
 require 'stringio'
+
+require 'rubygems'
+require 'active_support'
 
 class Net::HTTPResponse
   def body_with_gunzip

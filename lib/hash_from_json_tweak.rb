@@ -1,4 +1,7 @@
 
+require 'rubygems'
+require 'active_support'
+
 def Hash.from_json(json)
   h = ActiveSupport::JSON.decode json
   raise 'Parse result must be Hash.' unless h.is_a? Hash
