@@ -8,9 +8,9 @@ begin
     gem.summary = %Q{TODO: one-line summary of your gem}
     gem.description = %Q{TODO: longer description of your gem}
     gem.email = "scene.sc@gmail.com"
-    gem.homepage = "http://github.com/chsh/tweaks"
+    gem.homepage = "http://gems.thinq.jp/"
     gem.authors = ["CHIKURA Shinsaku"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_development_dependency "shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
