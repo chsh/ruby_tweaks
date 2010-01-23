@@ -1,6 +1,7 @@
 
-object:
-  test01: 'Test 01 Value'
+test:
+  object:
+    test01: 'Test 01 Value'
 
-moo_moo:
-  test02: 'http://www.google.co.jp/'
+  moo_moo:
+    test02: 'http://www.google.co.jp/'

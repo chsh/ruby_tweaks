@@ -52,6 +52,7 @@ class MooMoo; end
 class TestObjectClassConfigTweak < Test::Unit::TestCase
   should "read class_config from yaml." do
     ::RAILS_ROOT = "test/files/root1"
+    ::RAILS_ENV = 'test'
     assert_equal 'Test 01 Value', Object.class_config['test01']
     assert_equal 'http://www.google.co.jp/', MooMoo.class_config['test02']
   end
