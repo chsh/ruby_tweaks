@@ -47,6 +47,21 @@ class TestHashPathableTweak < Test::Unit::TestCase
   end
 end
 
+class TestHashRemapKeysTweak < Test::Unit::TestCase
+  should "have remap_keys method" do
+    h = {'a' => 1, 'b' => 2, 'c' => 3 }
+    new_h = h.remap_keys do |key, value|
+      "#{key}+"
+    end
+    expected = {'a+' => 1, 'b+' => 2, 'c+' => 3 }
+    assert_equal expected, new_h
+    h.remap_keys! do |key, value|
+      "#{key}+"
+    end
+    assert_equal expected, h
+  end
+end
+
 class MooMoo; end
 
 class TestObjectClassConfigTweak < Test::Unit::TestCase
