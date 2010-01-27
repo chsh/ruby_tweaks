@@ -4,7 +4,4 @@ class Object
     @@____class_config_saver____ ||= YAML.load_file("#{RAILS_ROOT}/config/class_config.yml")[RAILS_ENV]
     @@____class_config_saver____.path self.to_s.underscore
   end
-  def class_config
-    self.class.class_config
-  end
 end
