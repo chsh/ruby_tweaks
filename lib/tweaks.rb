@@ -6,4 +6,4 @@ require 'hash_pathable_tweak'
 require 'hash_remap_keys_tweak'
 require 'net_httpresponse_tweak'
 require 'object_class_config_tweak'
-
+require 'file_digest_tweak'
