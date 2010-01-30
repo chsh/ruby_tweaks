@@ -71,6 +71,10 @@ class TestObjectClassConfigTweak < Test::Unit::TestCase
     assert_equal 'Test 01 Value', Object.class_config['test01']
     assert_equal 'http://www.google.co.jp/', MooMooClass.class_config['test02']
     assert_equal 'http://www.yahoo.co.jp/', MooMooModule.class_config['test03']
+    assert_equal 'http://www.google.co.jp/', ClassConfig[MooMooClass]['test02']
+    assert_equal 'http://www.yahoo.co.jp/', ClassConfig[MooMooModule]['test03']
+    assert_equal 'http://www.google.co.jp/', ClassConfig["moo_moo_class"]['test02']
+    assert_equal 'http://www.yahoo.co.jp/', ClassConfig["moo_moo_module"]['test03']
   end
 end
 
