@@ -3,5 +3,8 @@ test:
   object:
     test01: 'Test 01 Value'
 
-  moo_moo:
+  moo_moo_class:
     test02: 'http://www.google.co.jp/'
+
+  moo_moo_module:
+    test03: 'http://www.yahoo.co.jp/'

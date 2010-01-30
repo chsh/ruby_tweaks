@@ -62,14 +62,15 @@ class TestHashRemapKeysTweak < Test::Unit::TestCase
   end
 end
 
-class MooMoo; end
-
+class MooMooClass; end
+module MooMooModule; end
 class TestObjectClassConfigTweak < Test::Unit::TestCase
   should "read class_config from yaml." do
     ::RAILS_ROOT = "test/files/root1"
     ::RAILS_ENV = 'test'
     assert_equal 'Test 01 Value', Object.class_config['test01']
-    assert_equal 'http://www.google.co.jp/', MooMoo.class_config['test02']
+    assert_equal 'http://www.google.co.jp/', MooMooClass.class_config['test02']
+    assert_equal 'http://www.yahoo.co.jp/', MooMooModule.class_config['test03']
   end
 end
 
