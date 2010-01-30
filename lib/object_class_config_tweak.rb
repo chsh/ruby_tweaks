@@ -1,7 +1,7 @@
 
 class Object
   def class_config
-    ____class_config_saver____.path self.to_s.underscore
+    ____class_config_saver____.path self.name.underscore
   end
   private
   def ____class_config_saver____
