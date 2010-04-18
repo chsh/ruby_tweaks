@@ -18,11 +18,13 @@ class TestArrayRefmapTweak < Test::Unit::TestCase
       end
       attr_reader :name, :desc
     end
+    class NullResp; end
     r0 = Resp.new('a', 'いろは'); r1 = Resp.new('xyz', 12345)
     array = [r0, r1]
-    ref_names = array.refmap(&:name)
+    ref_names = array.refmap(:default => NullResp.new, &:name)
     assert_equal ['a', 'xyz'], ref_names.keys.sort
     assert_equal r1, ref_names['xyz']
+    assert_equal NullResp, ref_names['not-existent-key'].class
   end
 end
 
@@ -66,6 +68,7 @@ class MooMooClass; end
 module MooMooModule; def to_s; ""; end; end
 class TestObjectClassConfigTweak < Test::Unit::TestCase
   should "read class_config from yaml." do
+    puts `pwd`
     ::RAILS_ROOT = "test/files/root1"
     ::RAILS_ENV = 'test'
     assert_equal 'Test 01 Value', Object.class_config['test01']
