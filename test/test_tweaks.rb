@@ -11,7 +11,7 @@ class TestArrayMapWithIndexTweak < Test::Unit::TestCase
 end
 
 class TestArrayRefmapTweak < Test::Unit::TestCase
-  should "have refmmap method." do
+  should "have refmap method." do
     class Resp
       def initialize(name, desc)
         @name = name; @desc = desc
@@ -21,7 +21,7 @@ class TestArrayRefmapTweak < Test::Unit::TestCase
     class NullResp; end
     r0 = Resp.new('a', 'いろは'); r1 = Resp.new('xyz', 12345)
     array = [r0, r1]
-    ref_names = array.refmap(:default => NullResp.new, &:name)
+    ref_names = array.refmap(NullResp.new, &:name)
     assert_equal ['a', 'xyz'], ref_names.keys.sort
     assert_equal r1, ref_names['xyz']
     assert_equal NullResp, ref_names['not-existent-key'].class

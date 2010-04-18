@@ -1,10 +1,10 @@
 
 class Array
-  def refmap(opts = {}, &block)
+  def refmap(default = nil, &block)
     keys = self.map(&block)
     hash = Hash[*[keys, self].transpose.flatten]
-    return hash unless opts[:default]
-    hash.default = opts[:default]
+    return hash unless default
+    hash.default = default
     hash
   end
 end
