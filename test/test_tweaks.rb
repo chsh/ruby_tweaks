@@ -64,6 +64,13 @@ class TestHashRemapKeysTweak < Test::Unit::TestCase
   end
 end
 
+class TestHashWithDefaultTweak < Test::Unit::TestCase
+  should 'have with_default method' do
+    h = {'a' => 1, 'b' => 2, 'c' => 3 }.with_default :alpha
+    assert_equal :alpha, h['not_existent_key']
+  end
+end
+
 class MooMooClass; end
 module MooMooModule; def to_s; ""; end; end
 class TestObjectClassConfigTweak < Test::Unit::TestCase
