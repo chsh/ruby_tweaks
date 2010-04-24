@@ -8,19 +8,47 @@ class Object
     @@____class_config_saver____ = nil if refresh
     @@____class_config_saver____ ||= ClassConfig.new
   end
-
 end
 
 class ClassConfig
+  class ChainableHash < Hash
+    def self.from(hash)
+      ch = ChainableHash.new
+      set_hash_into_ch(hash, ch)
+      ch
+    end
+    private
+    def self.set_hash_into_ch(hash, ch)
+      hash.each do |key, value|
+        if value.is_a? Hash
+          ch[key] = ChainableHash.from(value)
+        else
+          ch[key] = value
+        end
+        define_method_by_key(ch, key)
+      end
+    end
+    def self.define_method_by_key(ch, key)
+      if key.is_a?(String) && key =~ /^\w+$/
+        ch.instance_eval do
+          eval "def #{key}; self['#{key}']; end"
+        end
+      end
+    end
+  end
+
   def initialize
-    @cc = build
+    @cc = build_chainable_hash
+    @paths = {}
   end
 
   def path(elm_name)
     @cc.path elm_name
   end
-
-  def build
+  def build_chainable_hash
+    ChainableHash.from build_standard_hash
+  end
+  def build_standard_hash
     old_config = "#{RAILS_ROOT}/config/class_config.yml"
     if File.exist? old_config
       puts "DEPRECATION WARNING: config/class_config.yml is obsolute. Split class_config.yml into config/class_configs/*.yml"

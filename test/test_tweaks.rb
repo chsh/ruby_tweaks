@@ -72,6 +72,7 @@ class TestHashWithDefaultTweak < Test::Unit::TestCase
 end
 
 class MooMooClass; end
+class MiiMiiClass; end
 module MooMooModule; def to_s; ""; end; end
 class TestObjectClassConfigTweak < Test::Unit::TestCase
   should "read class_config from yaml." do
@@ -87,6 +88,7 @@ class TestObjectClassConfigTweak < Test::Unit::TestCase
     assert_equal 'http://amazon.co.jp/', MooMooClass.class_config['test02']
     assert_equal 'http://openoffice.org/', MooMooModule.class_config['test03']
 
+    assert_equal 30, MiiMiiClass.class_config.test10.min
   end
 end
 
