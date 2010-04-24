@@ -75,12 +75,18 @@ class MooMooClass; end
 module MooMooModule; def to_s; ""; end; end
 class TestObjectClassConfigTweak < Test::Unit::TestCase
   should "read class_config from yaml." do
-    puts `pwd`
     ::RAILS_ROOT = "test/files/root1"
     ::RAILS_ENV = 'test'
     assert_equal 'Test 01 Value', Object.class_config['test01']
     assert_equal 'http://www.google.co.jp/', MooMooClass.class_config['test02']
     assert_equal 'http://www.yahoo.co.jp/', MooMooModule.class_config['test03']
+
+    ::RAILS_ROOT = "test/files/root2"
+    ::RAILS_ENV = 'test'
+    Object.send :____class_config_saver____, true
+    assert_equal 'http://amazon.co.jp/', MooMooClass.class_config['test02']
+    assert_equal 'http://openoffice.org/', MooMooModule.class_config['test03']
+
   end
 end
 

@@ -1,0 +1,7 @@
+
+test:
+  mii_mii_class:
+    test01: 'http://amazon.co.jp/'
+
+  moo_moo_class:
+    test02: 'http://www.google2.co.jp/'
