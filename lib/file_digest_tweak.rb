@@ -1,5 +1,5 @@
 
-require 'md5'
+require 'digest/md5'
 
 # GenericUtils
 module Tweaks
