@@ -59,8 +59,13 @@ namespace :thinq do
     gem_file = "tweaks-#{version}.gem"
     gem_path = "pkg/#{gem_file}"
     raise "gem doesn't exist." unless File.exist? gem_path
-    `scp #{gem_path} gems.thinq.jp:`
-    `ssh gems.thinq.jp '/opt/ruby/current/bin/gem install #{gem_file}; rm #{gem_file}'`
+    cmd = "scp #{gem_path} gem-server@gems.thinq.jp:"
+    puts "Running: #{cmd}"
+    `#{cmd}`
+    # cmd = "ssh gem-server@gems.thinq.jp '/opt/local/bin/gem install #{gem_file}; rm #{gem_file}'"
+    cmd = "ssh gem-server@gems.thinq.jp 'GEM_HOME=~/repository /opt/local/bin/gem install #{gem_file}; rm #{gem_file}'"
+    puts "Running: #{cmd}"
+    `#{cmd}`
   end
 end
 
