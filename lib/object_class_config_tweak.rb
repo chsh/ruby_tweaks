@@ -49,15 +49,15 @@ class ClassConfig
     ChainableHash.from build_standard_hash
   end
   def build_standard_hash
-    old_config = "#{RAILS_ROOT}/config/class_config.yml"
+    old_config = "#{Rails.root}/config/class_config.yml"
     if File.exist? old_config
       puts "DEPRECATION WARNING: config/class_config.yml is obsolute. Split class_config.yml into config/class_configs/*.yml"
-      return hash_from_yaml(old_config, RAILS_ENV)
+      return hash_from_yaml(old_config, Rails.env)
     end
-    files = Dir.glob "#{RAILS_ROOT}/config/class_configs/*.yml"
+    files = Dir.glob "#{Rails.root}/config/class_configs/*.yml"
     yh = {}
     files.each do |file|
-      h = hash_from_yaml(file, RAILS_ENV)
+      h = hash_from_yaml(file, Rails.env)
       yh.merge! h
     end
     yh
