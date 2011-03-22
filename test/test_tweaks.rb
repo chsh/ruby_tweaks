@@ -97,8 +97,8 @@ end
 
 class TestFileDigestTweak < Test::Unit::TestCase
   should "calculate digest" do
-    require 'md5'
-    digest = MD5.hexdigest(File.open('README.rdoc').read)
+    require 'digest/md5'
+    digest = Digest::MD5.hexdigest(File.open('README.rdoc').read)
     assert_equal digest, File.md5('README.rdoc')
   end
 end

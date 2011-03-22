@@ -7,7 +7,7 @@ module Tweaks
     module ClassMethods
       def md5(file)
         raise "File doesn't exist." unless File.exist?(file)
-        digester = MD5.new
+        digester = Digest::MD5.new
         File.open(file) do |f|
           loop do
             buf = f.read(1024*1024)
