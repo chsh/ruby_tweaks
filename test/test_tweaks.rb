@@ -35,7 +35,7 @@ class TestHashFromJsonTweak < Test::Unit::TestCase
   should "have hash_from_json method." do
     h = {:a => 100, :b => {:c => 200, :d => 'abc'}}
     hr = {'a' => 100, 'b' => {'c' => 200, 'd' => 'abc'}}
-    j = h.to_json
+    j = JSON.dump(h)
     h2 = Hash.from_json j
     assert_equal hr, h2
   end
@@ -79,14 +79,20 @@ class MiiMiiClass; end
 module MooMooModule; def to_s; ""; end; end
 class TestObjectClassConfigTweak < Test::Unit::TestCase
   should "read class_config from yaml." do
-    ::RAILS_ROOT = "test/files/root1"
-    ::RAILS_ENV = 'test'
+    class ::Rails
+      def self.root; @@root; end
+      def self.root=(value); @@root = value; end
+      def self.env; @@env; end
+      def self.env=(value); @@env = value; end
+    end
+    Rails.root = "test/files/root1"
+    Rails.env = 'test'
     assert_equal 'Test 01 Value', Object.class_config['test01']
     assert_equal 'http://www.google.co.jp/', MooMooClass.class_config['test02']
     assert_equal 'http://www.yahoo.co.jp/', MooMooModule.class_config['test03']
 
-    ::RAILS_ROOT = "test/files/root2"
-    ::RAILS_ENV = 'test'
+    Rails.root = "test/files/root2"
+    Rails.env = 'test'
     Object.send :____class_config_saver____, true
     assert_equal 'http://amazon.co.jp/', MooMooClass.class_config['test02']
     assert_equal 'http://openoffice.org/', MooMooModule.class_config['test03']

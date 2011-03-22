@@ -8,7 +8,7 @@ module GenericSupport
           p.to_s.split(/[\/\.]+/)
         end
         pathes.flatten.each do |element|
-          next if element.blank?
+          next if (element == nil || element == '')
           key, index = parse_element__(element)
           target = target[key] || target[key.to_s]
           return nil unless target

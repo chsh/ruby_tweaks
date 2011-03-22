@@ -51,5 +51,6 @@ class Net::HTTPResponse
     end
     content
   end
-  alias_method_chain :body, :gunzip
+  alias_method :body_without_gunzip, :body
+  alias_method :body, :body_with_gunzip
 end
