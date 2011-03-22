@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tweaks}
-  s.version = "0.0.14"
+  s.version = "0.0.15"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["CHIKURA Shinsaku"]
-  s.date = %q{2010-12-19}
+  s.date = %q{2011-03-22}
   s.description = %q{It basicly needs rails environment. But you can use some tweaks without rails.}
   s.email = %q{scene.sc@gmail.com}
   s.extra_rdoc_files = [
@@ -38,11 +38,12 @@ Gem::Specification.new do |s|
     "test/files/root2/config/class_configs/poo3.yml",
     "test/files/root2/config/class_configs/poo4.yml",
     "test/helper.rb",
-    "test/test_tweaks.rb"
+    "test/test_tweaks.rb",
+    "tweaks.gemspec"
   ]
   s.homepage = %q{http://gems.thinq.jp/}
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{Tweaks is a pack of various utility methods.}
   s.test_files = [
     "test/helper.rb",
@@ -50,7 +51,6 @@ Gem::Specification.new do |s|
   ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
