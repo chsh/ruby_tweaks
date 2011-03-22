@@ -1,4 +1,7 @@
+# -*- encoding: utf-8 -*-
 require 'helper'
+
+require 'json'
 
 class TestArrayMapWithIndexTweak < Test::Unit::TestCase
   should "have map_with_index method." do
