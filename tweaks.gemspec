@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tweaks}
-  s.version = "0.0.15"
+  s.version = "0.0.16"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["CHIKURA Shinsaku"]
-  s.date = %q{2011-03-22}
+  s.date = %q{2011-04-19}
   s.description = %q{It basicly needs rails environment. But you can use some tweaks without rails.}
   s.email = %q{scene.sc@gmail.com}
   s.extra_rdoc_files = [
@@ -29,7 +29,6 @@ Gem::Specification.new do |s|
     "lib/hash_pathable_tweak.rb",
     "lib/hash_remap_keys_tweak.rb",
     "lib/hash_with_default_tweak.rb",
-    "lib/net_httpresponse_tweak.rb",
     "lib/object_class_config_tweak.rb",
     "lib/tweaks.rb",
     "test/files/root1/config/class_config.yml",
