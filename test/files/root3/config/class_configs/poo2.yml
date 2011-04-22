@@ -1,0 +1,4 @@
+
+test:
+  moo_moo_class:
+    test02: 'http://<%= ENV['AMAZON_HOST'] %>/'
