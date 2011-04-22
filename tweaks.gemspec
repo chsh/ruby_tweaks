@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{tweaks}
-  s.version = "0.0.17"
+  s.version = "0.0.18"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["CHIKURA Shinsaku"]
-  s.date = %q{2011-04-19}
+  s.date = %q{2011-04-22}
   s.description = %q{It basicly needs rails environment. But you can use some tweaks without rails.}
   s.email = %q{scene.sc@gmail.com}
   s.extra_rdoc_files = [
@@ -36,6 +36,9 @@ Gem::Specification.new do |s|
     "test/files/root2/config/class_configs/poo2.yml",
     "test/files/root2/config/class_configs/poo3.yml",
     "test/files/root2/config/class_configs/poo4.yml",
+    "test/files/root3/config/class_configs/poo2.yml",
+    "test/files/root3/config/class_configs/poo3.yml",
+    "test/files/root3/config/class_configs/poo4.yml",
     "test/helper.rb",
     "test/test_tweaks.rb",
     "tweaks.gemspec"
