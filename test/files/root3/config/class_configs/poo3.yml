@@ -1,0 +1,3 @@
+test:
+  moo_moo_module:
+    test03: 'http://openo<%= ['f', 'f', 'i'].join('') %>ce.org/'

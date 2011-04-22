@@ -98,6 +98,15 @@ class TestObjectClassConfigTweak < Test::Unit::TestCase
     assert_equal 'http://openoffice.org/', MooMooModule.class_config['test03']
 
     assert_equal 30, MiiMiiClass.class_config.test10.min
+    
+    ENV['AMAZON_HOST'] = 'amazon.co.jp'
+    Rails.root = "test/files/root3"
+    Rails.env = 'test'
+    Object.send :____class_config_saver____, true
+    assert_equal 'http://amazon.co.jp/', MooMooClass.class_config['test02']
+    assert_equal 'http://openoffice.org/', MooMooModule.class_config['test03']
+
+    assert_equal 30, MiiMiiClass.class_config.test10.min
   end
 end
 

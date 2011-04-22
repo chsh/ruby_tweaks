@@ -1,4 +1,6 @@
 
+require 'erb'
+
 class Object
   def class_config
     ____class_config_saver____.path self.name
@@ -64,7 +66,9 @@ class ClassConfig
   end
   def hash_from_yaml(filename, root_context = nil)
     return nil unless File.exist? filename
-    yh = YAML.load_file(filename)
+    content = File.read(filename)
+    erb = ERB.new(content)
+    yh = YAML.load(erb.result(binding))
     return yh unless root_context
     yh[root_context]
   end
