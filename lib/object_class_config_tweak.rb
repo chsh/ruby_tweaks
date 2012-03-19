@@ -79,7 +79,6 @@ class ClassConfig
   def build_config_base_path
     base_path = (defined? Rails) ? Rails.root : Dir.pwd
     path = File.join(base_path, 'config')
-    puts "path:#{path}"
     path
   end
   def config_env
