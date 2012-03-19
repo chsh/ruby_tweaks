@@ -12,4 +12,4 @@ group :development do
   gem "jeweler", "~> 1.8.3"
 end
 
-gem 'active_support'
+gem 'activesupport'
